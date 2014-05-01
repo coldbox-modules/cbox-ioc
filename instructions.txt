@@ -1,0 +1,22 @@
+********************************************************************************
+INSTRUCTIONS
+********************************************************************************
+Just drop into your modules folder or use the box-cli to install
+
+<pre>
+box install ioc
+</pre>
+
+The module registers the following mapping in WireBox: factory@ioc
+Which abstracts any IoC engine with typical methods like getBean(), containsBean()
+
+The ModuleConfig.cfc is where you will configure the third party engine under the
+settings configuration.
+
+This module also registers a WireBox DSL Namespace: ioc
+
+So you can leverage autowiring via this namespace:
+
+<pre>
+property name="myBean" inject="ioc:beanID";
+</pre>
