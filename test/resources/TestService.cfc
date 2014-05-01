@@ -3,6 +3,10 @@
 	<cfscript>
 		instance = structnew();
 		instance.testGateway = 0;
+
+		function sayHello(){
+			return "hola";
+		}
 	</cfscript>
 
 	<cffunction name="gettestGateway" access="public" output="false" returntype="any" hint="Get testGateway">

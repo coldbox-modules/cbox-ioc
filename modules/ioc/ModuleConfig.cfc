@@ -19,6 +19,9 @@ component {
 
 	function configure(){
 
+		// Mixin our own methods on handlers, interceptors and views via the ColdBox UDF Library File setting
+		arrayAppend( controller.getSetting( "UDFLibraryFile" ), "#moduleMapping#/model/mixins.cfm" );
+
 		// IOC integration module
 		/**
 		Here are the available settings.
@@ -33,7 +36,7 @@ component {
 			framework = "",
 			autoreload = false,
 			definitionFile = "",
-			parentFactory = { 
+			parentFactory = {
 				// framework = "", definitionFile = ""
 			}
 		};

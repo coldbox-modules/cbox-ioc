@@ -13,10 +13,13 @@ Which abstracts any IoC engine with typical methods like getBean(), containsBean
 The ModuleConfig.cfc is where you will configure the third party engine under the
 settings configuration.
 
-This module also registers a WireBox DSL Namespace: ioc
+This module registers a WireBox DSL Namespace: ioc
 
 So you can leverage autowiring via this namespace:
 
 <pre>
 property name="myBean" inject="ioc:beanID";
 </pre>
+
+This module also registers a new method: getBean( beanName ) on all 
+handlers, interceptors, views/layouts so you can easily retrieve objects.

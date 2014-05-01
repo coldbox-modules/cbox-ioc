@@ -30,6 +30,11 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 				expect(	factory ).toBeComponent();
 			});
 
+			it( "should register mixins", function(){
+				var event = execute( event="main.testMixins", renderResults=true );
+				expect( event.getValue("cbox_rendered_content") ).toBe( "Hola" );
+			});
+
 			it( "should retrieve via custom DSL", function(){
 				var factory = getFactory();
 				factory.setframework( "coldspring" );
