@@ -20,7 +20,7 @@
         // this will not include testService:
 		child.init(definitionFile='/test/specs/adapters');
 		child.createFactory();
-		child.setParentFactory( adapt.getFactory() );
+		child.setParentFactory( adapter.getFactory() );
         // but we should be able to reach it via the parent:
 		assertEquals( true, child.containsBean('testService') );
 	}
