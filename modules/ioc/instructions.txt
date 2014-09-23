@@ -10,12 +10,20 @@ box install ioc
 The module registers the following mapping in WireBox: factory@ioc
 Which abstracts any IoC engine with typical methods like getBean(), containsBean()
 
-The ModuleConfig.cfc is where you will configure the third party engine under the
-settings configuration.
+You will configure the ioc integration via your Coldbox.cfc configuration file
 
-This module registers a WireBox DSL Namespace: ioc
+ioc = {
+	framework 		= "",
+	reload 			= false,
+	definitionFile 	= "",
+	parentFactory = {
+		framework 		= "",
+		definitionFile = ""
+	}
 
-So you can leverage autowiring via this namespace:
+};
+
+This module registers a WireBox DSL Namespace: ioc, so you can leverage autowiring via this namespace:
 
 <pre>
 property name="myBean" inject="ioc:beanID";
