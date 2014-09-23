@@ -9,16 +9,15 @@ component{
 	this.sessionManagement = true;
 
 	// any mappings go here, we create one that points to the root called test.
-	this.mappings[ "/test" ] = getDirectoryFromPath( getCurrentTemplatePath() );
-	rootPath = REReplaceNoCase( this.mappings[ "/test" ], "test(\\|/)", "" );
+	this.mappings[ "/tests" ] = getDirectoryFromPath( getCurrentTemplatePath() );
+	rootPath = REReplaceNoCase( this.mappings[ "/tests" ], "tests(\\|/)", "" );
 	this.mappings[ "/root" ]   = rootPath;
-	this.mappings[ "/cbioc" ]  = rootPath & "/modules/ioc";
+	this.mappings[ "/cbioc" ]   = rootPath & "modules/ioc";
 
 	// any orm definitions go here.
 
 	// request start
 	public boolean function onRequestStart( String targetPage ){
-
 		return true;
 	}
 }

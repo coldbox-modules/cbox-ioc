@@ -4,27 +4,28 @@ Copyright Since 2005 ColdBox Framework by Luis Majano and Ortus Solutions, Corp
 www.coldbox.org | www.luismajano.com | www.ortussolutions.com
 ********************************************************************************
 
-Author 	    :	Luis Majano
+Author 	    :	Sean Corfield
+Date        :	May 28, 2014
 Description :
-	This is a concrete WireBox Adapter
+	This is a concrete DI/1 Adapter
 
 ----------------------------------------------------------------------->
-<cfcomponent hint="The ColdBox WireBox IOC factory adapter"
-			 extends="cbioc.model.AbstractIOCAdapter" 
+<cfcomponent hint="The ColdBox DI/1 IOC factory adapter"
+			 extends="cbioc.models.AbstractIOCAdapter" 
 			 output="false">
 
 <!----------------------------------------- CONSTRUCTOR ------------------------------------->			
 	
 	<!--- Constructor --->
-	<cffunction name="init" access="public" returntype="WireBoxAdapter" hint="Constructor" output="false" >
-		<cfargument name="definitionFile" 	type="string" 	required="false" default="" hint="The definition file to load a factory with"/>
+	<cffunction name="init" access="public" returntype="DI1Adapter" hint="Constructor" output="false" >
+		<cfargument name="definitionFile" 	type="string" 	required="false" default="" hint="The list of file paths to search for beans"/>
 		<cfargument name="properties" 		type="struct" 	required="false" default="#structNew()#" hint="Properties to pass to the factory to create"/>
 		<cfargument name="coldbox" 			type="any" 		required="false" default="" hint="A coldbox application that this instance of logbox can be linked to, not used if not using within a ColdBox Application."/>
 		<cfscript>
 			super.init(argumentCollection=arguments);
 			
-			// WireBox Factory Path
-			instance.WIREBOX_FACTORY_PATH = "coldbox.system.ioc.Injector";
+			// DI/1 Factory Path
+			instance.DI1_FACTORY_PATH = "framework.ioc";
 			
 			return this;
 		</cfscript>
@@ -33,10 +34,13 @@ Description :
 <!----------------------------------------- PUBLIC ------------------------------------->	
 
 	<!--- createFactory --->
-	<cffunction name="createFactory" access="public" returntype="void" hint="Create the WireBox Factory" output="false" >
+	<cffunction name="createFactory" access="public" returntype="void" hint="Create the DI/1 Factory" output="false" >
 		<cfscript>
-			//Create a WireBox injector
-			instance.factory = createObject("component", instance.WIREBOX_FACTORY_PATH ).init(binder=getDefinitionFile(),properties=getProperties(),coldbox=getColdbox());
+			var properties = getProperties();
+			
+			//Create the DI/1 Factory
+			instance.factory = createObject("component", instance.DI1_FACTORY_PATH ).init( getDefinitionFile(), properties );
+
 		</cfscript>
 	</cffunction>
 
@@ -44,7 +48,7 @@ Description :
 	<cffunction name="getBean" access="public" output="false" returntype="any" hint="Get a Bean from the object factory">
 		<cfargument name="beanName" type="string" required="true" hint="The bean name to retrieve from the object factory">
 		<cfscript>
-			return getFactory().getInstance(arguments.beanName);
+			return getFactory().getBean(arguments.beanName);
 		</cfscript>
 	</cffunction>
 	
@@ -52,7 +56,7 @@ Description :
 	<cffunction name="containsBean" access="public" returntype="boolean" hint="Check if the bean factory contains a bean" output="false" >
 		<cfargument name="beanName" type="string" required="true" hint="The bean name to retrieve from the object factory">	
 		<cfscript>
-			return getFactory().containsInstance(arguments.beanName);
+			return getFactory().containsBean(arguments.beanName);
 		</cfscript>
 	</cffunction>
 	
@@ -64,7 +68,7 @@ Description :
 	
 	<!--- getParentFactory --->
     <cffunction name="getParentFactory" output="false" access="public" returntype="any" hint="Get the parent factory">
-    	<cfreturn getFactory().getParent()>
+    	<cfthrow message="DI/1 does not support this operation (getParentFactory)">
     </cffunction>
 
 <!----------------------------------------- PRIVATE ------------------------------------->	

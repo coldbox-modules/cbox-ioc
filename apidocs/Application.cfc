@@ -9,7 +9,7 @@ component{
 
 	rootPath = REReplaceNoCase( this.mappings[ "/colddoc" ], "apidocs(\\|\/)$", "" );
 	this.mappings[ "/root" ] = rootPath;
-	this.mappings[ "/ioc" ] = rootPath & "modules/ioc/model";
+	this.mappings[ "/ioc" ] = rootPath & "modules/ioc/models";
 
 	// request start
 	public boolean function onRequestStart(String targetPage){

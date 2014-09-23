@@ -17,6 +17,7 @@ Holy Ghost which is given unto us. ." Romans 5:5
 WELCOME TO THE COLDBOX IOC MODULE
 ********************************************************************************
 Created & copyright by Luis Majano (Ortus Solutions, Corp)
+
 The ColdBox IOC module allows you to integrate third-party dependency injection
 and inversion of control frameworks into your ColdBox Applications.
 
@@ -35,9 +36,8 @@ Source
 ********************************************************************************
 SYSTEM REQUIREMENTS
 ********************************************************************************
-- Railo 3.2 and above
-- ColdFusion MX 9 and above
-- ColdBox 4.0 and above
+- Railo 4+
+- ColdFusion 9+
 
 ----
 

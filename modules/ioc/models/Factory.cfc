@@ -39,7 +39,7 @@ Description :
 			// Setup settings
 			variables.framework 		= arguments.settings.framework;
 			variables.definitionFile 	= arguments.settings.definitionFile;
-			variables.autoreload  		= arguments.settings.autoreload;
+			variables.autoreload  		= arguments.settings.reload;
 			variables.parentFactory 	= arguments.settings.parentFactory;
 			variables.coldbox 			= arguments.coldbox;
 
@@ -114,9 +114,9 @@ Description :
 			var thisAdapter = "";
 
 			switch( arguments.framework ){
-				case "coldspring" 	: { adapterPath = "cbioc.model.adapters.ColdSpringAdapter"; break; }
-				case "coldspring2" 	: { adapterPath = "cbioc.model.adapters.ColdSpring2Adapter"; break; }
-				case "wirebox" 		: { adapterPath = "cbioc.model.adapters.WireBoxAdapter"; break; }
+				case "coldspring" 	: { adapterPath = "cbioc.models.adapters.ColdSpringAdapter"; break; }
+				case "coldspring2" 	: { adapterPath = "cbioc.models.adapters.ColdSpring2Adapter"; break; }
+				case "wirebox" 		: { adapterPath = "cbioc.models.adapters.WireBoxAdapter"; break; }
 				// Default as custom object class
 				default				: { adapterPath = arguments.framework; break;}
 			}
