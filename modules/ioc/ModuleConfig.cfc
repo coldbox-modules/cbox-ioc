@@ -33,7 +33,7 @@ component {
 		parseParentSettings();
 		// Bind the factory with arguments
 		binder.map( "factory@ioc" )
-			.to( "cbioc.model.Factory" )
+			.to( "cbioc.models.Factory" )
 			.initArg( name="settings", value=configSettings.ioc )
 			.initArg( name="coldbox", dsl="coldbox" );
 		// if configured, load the IOC library

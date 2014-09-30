@@ -1,7 +1,7 @@
 {
 	"name" 		: "ColdBox IOC module",
 	"author" 	: "Luis Majano <lmajano@ortussolutions.com",
-	"version"	: "1.0.0",
+	"version"	: "1.0.0+@build.number@",
 	"slug"		: "ioc",
 	"type"		: "modules",
 	"homepage"	: "http://www.coldbox.org",
