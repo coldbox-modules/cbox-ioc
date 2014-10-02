@@ -19,7 +19,7 @@ component {
 
 	function configure(){
 		// Mixin our own methods on handlers, interceptors and views via the ColdBox UDF Library File setting
-		arrayAppend( controller.getSetting( "UDFLibraryFile" ), "#moduleMapping#/models/mixins.cfm" );
+		arrayAppend( controller.getSetting( "ApplicationHelper" ), "#moduleMapping#/models/mixins.cfm" );
 		// Register Custom DSL, don't map it because it is too late, mapping DSLs are only good by the parent app
 		controller.getWireBox().registerDSL( namespace="ioc", path="#moduleMapping#.models.IOCDSL" );
 	}
