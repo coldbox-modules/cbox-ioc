@@ -3,11 +3,11 @@
 	this.loadcoldbox = false;
 
 	function setup(){
-		adapter = getMockBox().createMock("cbioc.model.adapters.WireBoxAdapter");
+		adapter = getMockBox().createMock("cbioc.models.adapters.WireBoxAdapter");
 	}
 
 	function creationTest(){
-		adapter.init(definitionFile="test.resources.WireBox");
+		adapter.init(definitionFile="tests.resources.WireBox");
 		adapter.createFactory();
 
 		//assertEquals( false, adapter.containsBean('funkyObject') );
@@ -15,8 +15,8 @@
 
 		assertEquals( true, isObject(adapter.getBean('testService')) );
 
-		parent = getMockBox().createMock("cbioc.model.adapters.WireBoxAdapter");
-		parent.init(definitionFile="test.resources.WireBox");
+		parent = getMockBox().createMock("cbioc.models.adapters.WireBoxAdapter");
+		parent.init(definitionFile="tests.resources.WireBox");
 		parent.createFactory();
 		adapter.setParentFactory( parent.getFactory() );
 		assertEquals( parent.getFactory(), adapter.getParentFactory() );

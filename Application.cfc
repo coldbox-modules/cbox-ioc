@@ -11,9 +11,6 @@ component{
 	this.sessionTimeout = createTimeSpan(0,0,30,0);
 	this.setClientCookies = true;
 
-	// Mappings Imports
-	import coldbox.system.*;
-
 	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
 	COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
 	// The web server mapping to this application. Used for remote purposes or static purposes
@@ -22,6 +19,10 @@ component{
 	COLDBOX_CONFIG_FILE 	 = "";
 	// COLDBOX APPLICATION KEY OVERRIDE
 	COLDBOX_APP_KEY 		 = "";
+
+	this.mappings[ "/coldspring" ] = COLDBOX_APP_ROOT_PATH & "/coldspring";
+	this.mappings[ "/framework" ] = COLDBOX_APP_ROOT_PATH & "/framework";
+	this.mappings[ "/cbiocapp" ] = COLDBOX_APP_ROOT_PATH;
 
 	// application start
 	public boolean function onApplicationStart(){
@@ -32,15 +33,6 @@ component{
 
 	// request start
 	public boolean function onRequestStart(String targetPage){
-
-		// Bootstrap Reinit
-		if( not structKeyExists(application,"cbBootstrap") or application.cbBootStrap.isfwReinit() ){
-			lock name="coldbox.bootstrap_#this.name#" type="exclusive" timeout="5" throwonTimeout=true{
-				structDelete( application, "cbBootStrap" );
-				onApplicationStart();
-			}
-		}
-
 		// Process ColdBox Request
 		application.cbBootstrap.onRequestStart( arguments.targetPage );
 

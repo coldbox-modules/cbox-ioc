@@ -12,7 +12,10 @@ component{
 	this.mappings[ "/tests" ] = getDirectoryFromPath( getCurrentTemplatePath() );
 	rootPath = REReplaceNoCase( this.mappings[ "/tests" ], "tests(\\|/)", "" );
 	this.mappings[ "/root" ]   = rootPath;
-	this.mappings[ "/cbioc" ]   = rootPath & "modules/ioc";
+	this.mappings[ "/cbiocapp" ]   = rootPath;
+	this.mappings[ "/cbioc" ]   = rootPath & "modules/cbioc";
+	this.mappings[ "/coldspring" ] = rootPath & "/coldspring";
+	this.mappings[ "/framework" ] = rootPath & "/framework";
 
 	// any orm definitions go here.
 

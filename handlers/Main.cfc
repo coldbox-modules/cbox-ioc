@@ -12,9 +12,9 @@ component{
 	}
 
 	any function testMixins( event, rc, prc ){
-		var factory = getInstance( "factory@ioc" );
+		var factory = getInstance( "factory@cbioc" );
 		factory.setframework( "coldspring" );
-		factory.setDefinitionFile( "/#getSetting( "appMapping" )#/test/resources/coldspring.xml.cfm" );
+		factory.setDefinitionFile( "/#getSetting( "appMapping" )#/config/coldspring.xml.cfm" );
 		factory.configure();
 
 		return getBean( "TestService" ).sayHello();

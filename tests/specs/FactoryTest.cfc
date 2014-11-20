@@ -38,7 +38,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 			it( "should retrieve via custom DSL", function(){
 				var factory = getFactory();
 				factory.setframework( "coldspring" );
-				factory.setDefinitionFile( "/test/resources/coldspring.xml.cfm" );
+				factory.setDefinitionFile( "/tests/resources/coldspring.xml.cfm" );
 				factory.configure();
 				var service = getWireBox().getInstance( dsl="ioc:testService" );
 				expect( isObject( service ) ).toBeTrue();
@@ -47,7 +47,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 	}
 
 	private function getFactory(){
-		return getWireBox().getInstance( "factory@ioc" );
+		return getWireBox().getInstance( "factory@cbioc" );
 	}
 
 }

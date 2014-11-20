@@ -31,7 +31,7 @@ Description :
 
 		// WireBox Mappings
 		wirebox.mappings = {
-			TestService = {path="test.resources.TestService"}
+			TestService = {path="tests.resources.TestService"}
 		};
 	}
 </cfscript>
