@@ -2,10 +2,10 @@ component {
 
 	// Module Properties
 	this.title 				= "CBIOC";
-	this.author 			= "Luis Majano";
+	this.author 			= "Ortus Solutions, Corp";
 	this.webURL 			= "http://www.ortussolutions.com";
 	this.description 		= "This module integrates third-party DI/IOC engines into ColdBox like ColdSpring and DI/1";
-	this.version			= "1.0.0+@build.number@";
+	this.version			= "@version.number@+@build.number@";
 	// If true, looks for views in the parent first, if not found, then in the module. Else vice-versa
 	this.viewParentLookup 	= true;
 	// If true, looks for layouts in the parent first, if not found, then in module. Else vice-versa
