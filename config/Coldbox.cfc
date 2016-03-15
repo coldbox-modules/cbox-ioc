@@ -1,5 +1,5 @@
-<cfcomponent output="false" hint="My App Configuration">
-<cfscript>
+component{
+
 	// Configure ColdBox Application
 	function configure(){
 
@@ -62,7 +62,7 @@
 			appenders = {
 				files={class="coldbox.system.logging.appenders.RollingFileAppender",
 					properties = {
-						filename = "javaloader", filePath="/#appMapping#/logs"
+						filename = "app", filePath="/#appMapping#/logs"
 					}
 				}
 			},
@@ -81,5 +81,5 @@
 		];
 
 	}
-</cfscript>
-</cfcomponent>
+
+}
