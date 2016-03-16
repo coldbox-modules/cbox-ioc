@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ColdBox/cbox-ioc.svg?branch=development)](https://travis-ci.org/ColdBox/cbox-ioc)
+
 # Welcome to the IoC Module
 The ColdBox IOC module allows you to integrate third-party dependency injection
 and inversion of control frameworks into your ColdBox Applications.
